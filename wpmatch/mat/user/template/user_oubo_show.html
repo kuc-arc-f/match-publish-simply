@@ -1,0 +1,88 @@
+<!-- テンプレート -->
+<!--
+<h1>募集 詳細 </h1>
+-->
+<div class="div_conte">
+		<h2 class="h4_td_title">募集 詳細</h2>
+		<br />
+</div>
+	
+  <form name="form1" method="GET"  action="./">
+		<input type="hidden"  value="user_oubo_add_show" name="fn" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['id']); ?>" name="id" />
+<div id="id_input_form" style="">
+	<table class="table table-striped" border="1">
+	<thead>
+	<tr>
+		<th>項目</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tr>
+		<th>募集 ID</th>
+		<td><?php echo($tpl['dat']['id']); ?></td>
+	</tr>
+	<tr>
+		<th>タイトル</th>
+		<td><?php echo($tpl['dat']['title']); ?></td>
+	</tr>
+	<tr>
+		<th>募集終了日</th>
+		<td><?php echo($tpl['dat']['bosyu_end']); ?></td>
+	</tr>
+	<tr>
+		<th>報酬金額</th>
+		<td><?php echo($tpl['housyu']); ?></td>
+	</tr>
+	<tr>
+		<th>契約期間</th>
+		<td><?php echo($tpl['keiyaku_span_name']); ?></td>
+	</tr>
+	<tr>
+		<th>募集人数</th>
+		<td><?php echo($tpl['dat']['bosyu_num']); ?> 人</td>
+	</tr>
+	<tr>
+			<th>募集者 ID</th>
+			<td><?php echo($tpl['dat']['user_id']); ?></td>
+	</tr>
+	<tr>
+			<th>募集者</th>
+			<td><?php echo($tpl['dat']['bosyu_user_name']); ?></td>
+	</tr>
+	<?php if($tpl['ct_sentaku'] > 0){ ?>
+	<tr>
+		<th>当選者</th>
+		<td><p style="color: blue; font-weight : bold; "><?php echo($tpl['ct_sentaku'] ); ?> 人</p></td>
+	</tr>
+	<?php } ?>
+
+	</table>
+	<br />	
+	<!-- -->
+	<!-- -->
+	<p style="font-size: 16px;">募集内容:</p>
+	<div style="max-width : 500px;  padding:10px; ;border: solid 1px black; background: #ffebcd;">
+		<?php echo(nl2br($tpl['dat']['naiyou'])); ?>
+	</div>
+	<br />
+	<hr />
+	<?php if($tpl['bosyu_add_size'] > 0){  ?>
+		<p>追記情報:</p> 
+		<?php foreach ($tpl['bosyu_add'] as $key => $value) { ?>
+			<?php echo($value['create_dt'] ); ?>
+			<div style="max-width : 500px;  padding:10px; ;border: solid 1px black;">
+					<?php echo(nl2br($value['add_text']) ); ?>
+			</div>
+			<br />
+		<?php } ?>
+	<?php } ?>
+	<!-- -->
+	<? global $mUser; ?>	
+	<?php  if($mUser['sanka_type']=='oubo'){ ?>
+		<input type="submit" class="btn btn-lg btn-primary" value="応募する" /><br />
+	<?php } ?>
+  </form>
+</div>
+  <br />
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">  
+  <title><?php  echo($mConfig['sys_title']); ?></title>
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.min.css?A1">
+  <link rel="stylesheet" href="./css/main.css?A1">
+  <link href="./css/main-sp.css?A3" rel="stylesheet" media="screen and (max-width: 480px)">
+  <link rel="stylesheet" href="./css/theme.css?A4">
+  <link rel="stylesheet" href="./css/top_scroll.css?A2">
+  <script src="../jquery-1.10.2.min.js?A1"></script>
+  <script src="../bootstrap-3.3.7/js/bootstrap.min.js?A1"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<!--  nav-post  -->
+<div id="div_navigate_post">
+    <div id="div_head" class="cover">
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+          <a href="./"><p><?php  echo($mConfig['sys_title']); ?></p></a>
+          </div>
+          <div class="col-sm-8" style="text-align: right;">
+        <!-- nav -->	  
+        <?php  global $mUser ?>
+
+        <div class='menubar'>
+            <ul class='menu text-border'>
+              <p></p>
+<!--
+              <li><a href='<?php echo($mConfig['base_url']); ?>/mat/user/?fn=user_logout'> ログアウト </a>
+              </li>
+-->
+            </ul>
+          </div>
+          </div>
+        </div><!-- row -->
+        </div>
+    </div><!-- end_div_head -->
+</div>
+  
+
+<body class="drawer drawer--left" style="background-color: #EEEEEE;">
+  <!-- T -->
+  <a href="#" class="page-top" style="color: #fff;"><img src="../image/arrow_5.png" /></a>
+  <div  id="container">
+     <div id="main">
+<div class="container" style="margin-top:10px;">
+        <div class="row conte">
+
+        <div class="col-sm-12" style="padding: 10px;">
+				<div class="div_news_rows" style="width:100%; text-align: left;">
+						<?php include("{$mConfig['temp_dir']}/{$tpl['temp_html']}"); ?>
+				</div>
+        </div><!-- col_9 -->
+        </div><!-- row -->
+</div>
+
+
+    </div>
+    <br />
+<br />
+<div id="id_foot" style="background-color: #757575 ; color:#FFF ; padding : 200px 40px;">
+	<a href="#"><p class="p_foot_str">About</p></a>
+	<p class="p_foot_str">Contact</p>
+	<p class="p_foot_str">運営組織</p>
+ </div>
+ <script>
+ function demo01() {
+	 $(this).next().slideToggle(300);
+ }
+ $(".toggle").click(demo01);
+ </script>
+ <script src="./js/top_scroll.js"></script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!-- テンプレート -->
+<!--
+ <h1>メッセージ　受信</h1>
+-->
+ <div class="div_conte" >
+		<h2 class="h4_td_title">メッセージ　受信</h2>
+		<br />
+</div>
+
+ <div class="flexbox" style="margin :0px; max-width : 340px;">
+    <div class="flexbox_div" style="padding: 0px;">
+        <a href="./?fn=user_message_recv_list" class="btn btn-default">受信</a>
+    </div>
+    <div class="flexbox_div flexbox_twice" style="padding: 0px; text-align: left;">
+        <a href="./?fn=user_message_send_list" class="btn btn-default">送信済</a>
+    </div>
+</div>
+<!--
+ <P><a href="./?fn=user_message_send_list">[ メッセージ　送信済 ]</a> </P>
+-->
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+    <th>メッセージ<br /> ID</th>
+    <th>送信者</th>
+    <th>メッセージ</th>
+    <th>日時</th>
+    <th> </th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+      <?php echo($value['nickname']); ?><br />
+      ID: <?php echo($value['from_id']); ?>
+  </td>
+  <td>
+        <p><?php echo($value['msg_fmt']); ?></p>
+<!--
+      <p><?php echo($value['msg_text']); ?></p>
+-->
+  </td>
+  <td>
+      <?php echo($value['create_dt']); ?>
+  </td>
+  <td> 
+   <p><a href="./?fn=user_message_reply_show&id=<?php echo ($value['id']); ?>" class="btn btn-primary">詳細</a></p>
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+	<a href="./?fn=user_message_recv_list&page=<?php echo $i ?>">[ <?php echo $i; ?> ]</a>
+<?php } ?>
+<hr />
+<br />

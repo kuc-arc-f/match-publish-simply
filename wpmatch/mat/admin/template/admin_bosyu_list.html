@@ -1,0 +1,74 @@
+<!-- テンプレート -->
+
+  <div class="div_conte" >
+      <h2 class="h4_td_title">案件募集 リスト</h2>
+      <br />
+  </div>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="admin_bosyu_list" name="fn" />
+    <!-- -->
+    <div class="input-group">
+      <p style="float: left ;">ID,タイトル: </p>
+        &nbsp;<input type="text" name="sc_key" maxlength="64">&nbsp;
+        <select name="koukai" style="font-size: 16px;">
+          <option value="9">全て</option>
+          <?php foreach ($tpl['bosyu_koukai_arr'] as $key => $value) { ?>
+              <?php if($key== $tpl['koukai_select']){ ?>
+                  <option value="<?php echo($key); ?>" selected ><?php echo($value ); ?></option>
+              <?php }else{ ?>
+                  <option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+              <?php } ?>
+          <?php } ?>
+      </select>
+        <!-- -->
+        &nbsp;<input type="submit" class="btn btn-default" value="検索" /><br />
+    </div>
+</form>
+<br />
+<!---->
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+		<th>ID</th>
+    <th>タイトル</th>
+    <th>状態</th>
+		<th>登録日</th>
+		<th> </th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+      <h4><?php echo($value['title']); ?></h4>
+      <!--
+      <p style="margin-top: 10px;">報酬: <?php echo($value['housyu']); ?></p>
+      -->
+  </td>
+  <td>
+    <p><?php echo($value['state_name']); ?></p>
+    <p><?php echo($value['bosyu_koukai_name']); ?></p>
+  </td>
+  <td>
+      <?php echo($value['create_dt']); ?>
+  </td>
+  <td> 
+    <!--
+   <p><a href="./?fn=user_oubo_show&id=<?php echo ($value['id']); ?>" class="btn btn-primary">詳細</a></p>
+    -->
+   <p><a href="./?fn=admin_bosyu_edit&id=<?php echo ($value['id']); ?>" class="btn btn-primary">編集</a></p>
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<?php if($tpl['page_flg'] == 1) { ?>
+    <?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+      <a href="./?fn=admin_bosyu_list&page=<?php echo $i ?>&koukai=<?php echo($tpl['koukai_select']); ?>">[ <?php echo $i; ?> ]</a>
+    <?php } ?>
+ <?php } ?>  
+<hr />
+<br />

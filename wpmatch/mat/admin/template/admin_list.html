@@ -1,0 +1,51 @@
+<!-- テンプレート -->
+
+<!--
+  <h1>管理者 リスト</h1><br />
+-->
+<div class="div_conte" >
+    <h2 class="h4_td_title">管理者 リスト</h2>
+    <br />
+</div>
+
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+		<th>ID</th>
+		<th>email</th>
+		<th>ユーザー種別</th>
+		<th>作成日</th>
+		<th>action</th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+	  <?php echo($value['email' ]); ?>
+  </td>
+  <td>
+	  <?php echo($value['utype' ]); ?>
+  </td>
+  <td>
+	  <?php echo($value['create_dt' ]); ?>
+  </td>
+  <td> 
+   <p><a href="./?fn=admin_edit&id=<?php echo ($value['id']); ?>" class="btn btn-primary">edit</a></p>
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+	<a href="./?fn=admin_user_list&page=<?php echo $i ?>">[ <?php echo $i; ?> ]</a>
+<?php } ?>
+<hr />
+<!--
+<a href="./?fn=admin_add_show">[ 管理者を追加 ]</a>
+ -->
+<p><a href="./?fn=admin_add_show" class="btn btn-default"> 管理者を追加 </a></p>
+<br />

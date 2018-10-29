@@ -1,0 +1,78 @@
+<!-- テンプレート -->
+<!--
+<h1>募集 追加</h1>
+-->
+<div class="div_conte_w" style="text-align: center; ">
+    <h2 class="h4_td_title">募集 追加</h2>
+ </div>
+<div><p style="color:red;"><?php echo($tpl['error']); ?></p>
+</div>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="user_bosyu_kakunin" name="fn" /><br />
+<div id="id_input_form" style="">
+	<div class="input-group">
+	<span class="input-group-addon" id="basic-addon1">タイトル</span>
+	<input type="text" name="title" maxlength="512"
+	 class="form-control" placeholder="" value="<?php echo($tpl['dat']['title']); ?>" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<div class="input-group">
+	<p style="font-size: 16px; float: left;">募集期間:</p>
+	&nbsp;
+	<select name="bosyu_end_kbn" style="font-size: 16px;">
+		<?php foreach ($tpl['bosyu_kikan_arr'] as $key => $value) { ?>
+			<?php if($tpl['dat']['bosyu_end_kbn']== $key ){ ?>
+				<option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>			
+			<?php }else{ ?>
+				<option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+			<?php } ?>
+		<?php } ?>
+	</select>
+	</div>
+	<br />
+	<div class="input-group" style="max-width : 500px;">
+	<p style="font-size: 16px; float: left;">報酬金額:</p>
+	&nbsp;
+	<select name="price_kbn" style="font-size: 16px;">
+			<?php foreach ($tpl['housyu_price_arr'] as $key => $value) { ?>
+				<?php if($tpl['dat']['price_kbn']== $key ){ ?>
+					<option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+					<?php }else{ ?>
+					<option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+				<?php } ?>
+			<?php } ?>
+	</select>
+	</div>
+	<br />
+	<!-- -->
+	<div class="input-group" style="max-width : 500px;">
+	<p style="font-size: 16px; float: left;">契約期間:</p>
+	&nbsp;
+	<select name="keiyaku_span" style="font-size: 16px;">
+			<?php foreach ($tpl['keiyaku_kikan_arr'] as $key => $value) { ?>
+				<?php if($tpl['dat']['keiyaku_span']== $key ){ ?>
+					<option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+				<?php }else{ ?>
+					<option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+				<?php } ?>
+			<?php } ?>
+	</select>
+	</div>
+	<br />
+	<div class="input-group" style="max-width : 500px;">
+	<span class="input-group-addon" id="basic-addon1">募集人数</span>
+	<input type="text" name="bosyu_num" maxlength="512" style="width : 100px;"
+	 class="form-control" placeholder="" value="<?php echo($tpl['dat']['bosyu_num']); ?>" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<!-- -->
+	<p style="font-size: 16px;">募集内容:</p>
+	<div style="max-width : 500px;">
+	<textarea name="naiyou" rows="20" cols="80"><?php echo($tpl['dat']['naiyou']); ?></textarea>
+	</div>
+	<br />
+	<input type="submit" class="btn btn-lg btn-primary" value="確認する" /><br />
+  </form>
+</div>
+  <br />
+

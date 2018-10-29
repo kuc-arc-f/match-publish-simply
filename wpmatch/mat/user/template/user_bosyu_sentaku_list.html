@@ -1,0 +1,54 @@
+<!-- テンプレート -->
+<!--
+<h1>応募者　リスト</h1><br />
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">応募者　リスト</h2>
+		<br />
+</div>
+
+<p>募集 ID: <?php echo($tpl['bosyu']['id']); ?></p>
+<p>タイトル: <?php echo($tpl['bosyu']['title']); ?></p><br />
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+		<th>応募<br />ID</th>
+		<th>応募者</th>
+		<th>応募日時</th>
+		<th> </th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+      <h4><?php echo($value['nickname']); ?></h4>
+      ID: <?php echo($value['user_id']); ?>
+      <p style="margin-top: 10px;">報酬: <?php echo($value['price_fmt']); ?> 円</p>
+  </td>
+  <td>
+      <?php echo($value['oubo_date']); ?>
+  </td>
+  <td>
+    <!--
+   <p><a href="./?fn=user_bosyu_sentaku_show&id=<?php echo ($value['id']); ?>" class="btn btn-primary">選択へ進む</a></p>
+    --> 
+   <p><a href="./?fn=user_bosyu_sentaku_show&id=<?php echo ($value['id']); ?>" class="btn btn-primary">応募内容　確認</a></p>
+   <p><a href="./?fn=user_message_send_show&bosyu_id=<?php echo ($value['bosyu_id']); ?>&send_id=<?php echo ($value['user_id']); ?>"
+     class="btn btn-primary">メッセージ送信</a></p>
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<!--
+<?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+	<a href="./?fn=user_bosyu_sentaku_list&page=<?php echo $i ?>">[ <?php echo $i; ?> ]</a>
+<?php } ?>
+
+-->
+<hr />
+<br />

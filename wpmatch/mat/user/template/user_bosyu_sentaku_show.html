@@ -1,0 +1,87 @@
+<!-- テンプレート -->
+<!--
+<h1>応募 詳細 </h1>
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">応募 詳細</h2>
+		<br />
+</div>
+
+  <form name="form1" method="POST"  action="./">
+		<input type="hidden"  value="user_bosyu_sentaku_add" name="fn" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['oubo_id']); ?>" name="oubo_id" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['bosyu_id']); ?>" name="bosyu_id" />
+<div id="id_input_form" style="">
+	<h4> 募集 概要: </h4>
+	<table class="table table-striped" border="1">
+	<thead>
+	<tr>
+		<th>項目</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tr>
+		<th>タイトル</th>
+		<td><?php echo($tpl['dat']['title']); ?></td>
+	</tr>
+	<tr>
+		<th>募集ID</th>
+		<td><?php echo($tpl['dat']['bosyu_id']); ?></td>
+	</tr>	
+	<tr>
+			<th>報酬</th>
+			<td><?php echo($tpl['dat']['housyu']); ?></td>
+	</tr>	
+	<tr>
+		<th>募集終了日</th>
+		<td><?php echo($tpl['dat']['bosyu_end']); ?></td>
+	</tr>
+	</table>
+	<hr />
+	<!-- -->
+	<h4> 応募概要: </h4>
+	<table class="table table-striped" border="1">
+	<thead>
+	<tr>
+		<th>項目</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tr>
+		<th>応募 ID</th>
+		<td><?php echo($tpl['dat']['oubo_id']); ?></td>
+	</tr>	
+	<tr>
+		<th>応募者 ID</th>
+		<td><?php echo($tpl['dat']['user_id']); ?></td>
+	</tr>
+	<tr>
+		<th>応募者</th>
+		<td><?php echo($tpl['dat']['nickname']); ?></td>
+	</tr>		
+	<tr>
+		<th>応募日時</th>
+		<td><?php echo($tpl['dat']['oubo_date']); ?></td>
+	</tr>
+	<tr>
+		<th>報酬金額</th>
+		<td><?php echo($tpl['dat']['price_fmt']); ?> 円</td>
+	</tr>
+	</table>
+	<!-- -->
+	<p style="font-size: 16px;">応募内容:</p>
+	<div style="max-width : 500px;  padding:10px; ;border: solid 1px black;"><?php echo(nl2br($tpl['dat']['oubo_text'])); ?>
+	</div>
+	<br />
+	<!--
+	<p style="font-size: 16px;">選定時 コメント:</p>
+	<div style="max-width : 500px;">
+	<textarea name="sentaku_text" rows="12" cols="80"></textarea>
+	</div>
+	-->
+	<input type="submit" class="btn btn-lg btn-primary" value="上記応募を当選" /><br />
+
+</form>
+</div>
+  <br />
+

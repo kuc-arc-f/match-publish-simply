@@ -1,0 +1,62 @@
+<!-- テンプレート -->
+<!--
+  <h1>ユーザーリスト</h1> <br />
+-->
+  <div class="div_conte" >
+      <h2 class="h4_td_title">ユーザーリスト</h2>
+      <br />
+  </div>
+
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="admin_user_list" name="fn" />
+    <!-- -->
+    <div class="input-group">
+      <p style="float: left ;">ID,ニックネーム: </p>
+        &nbsp;<input type="text" name="sc_key" maxlength="64">&nbsp;
+        <!-- -->
+        &nbsp;<input type="submit" class="btn btn-default" value="検索" /><br />
+    </div>
+</form>
+<br />
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+		<th>ID</th>
+    <th>ニックネーム</th>
+    <th>参加区分</th>
+    <th>作成日</th>
+    <th>stat</th>
+		<th>action</th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+      <?php echo($value['nickname']); ?>
+  </td>
+  <td>
+      <?php echo($value['sanka_type_name']); ?>
+  </td>
+  <td>
+	  <?php echo($value['create_dt' ]); ?>
+  </td>
+  <td>
+      <?php echo($value['stat_name' ]); ?>
+  </td>
+  <td style="text-align:center;">
+   <p><a href="./?fn=admin_user_edit&id=<?php echo ($value['id']); ?>" class="btn btn-primary">edit</a></p>
+  <!--    <a href="./?fn=admin_user_edit&id=<?php echo ($value['id']); ?>">[ edit ]</a>
+   -->
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+	<a href="./?fn=admin_user_list&page=<?php echo $i ?>">[ <?php echo $i; ?> ]</a>
+<?php } ?>
+

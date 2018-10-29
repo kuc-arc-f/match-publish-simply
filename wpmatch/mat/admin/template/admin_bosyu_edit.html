@@ -1,0 +1,79 @@
+<!-- テンプレート -->
+<!--
+<h1>募集 詳細 </h1>
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">募集 詳細</h2>
+		<br />
+</div>
+  <form name="form1" method="GET"  action="./">
+		<input type="hidden"  value="admin_bosyu_update" name="fn" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['id']); ?>" name="id" />
+<div id="id_input_form" style="">
+	<table class="table table-striped" border="1">
+	<thead>
+	<tr>
+		<th>項目</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tr>
+		<th>ID</th>
+		<td><?php echo($tpl['dat']['id']); ?></td>
+	</tr>
+	<tr>
+		<th>タイトル</th>
+		<td><?php echo($tpl['dat']['title']); ?></td>
+	</tr>
+	<tr>
+		<th>募集終了日</th>
+		<td><?php echo($tpl['dat']['bosyu_end']); ?></td>
+	</tr>
+	<tr>
+		<th>報酬金額</th>
+		<td><?php echo($tpl['housyu']); ?></td>
+	</tr>
+	<tr>
+		<th>契約期間</th>
+		<td><?php echo($tpl['keiyaku_span_name']); ?></td>
+	</tr>
+	<tr>
+		<th>募集人数</th>
+		<td><?php echo($tpl['dat']['bosyu_num']); ?> 人</td>
+	</tr>
+	<tr>
+		<th>募集者 ID</th>
+		<td><?php echo($tpl['dat']['user_id']); ?></td>
+	</tr>
+	<tr>
+		<th>募集者</th>
+		<td><?php echo($tpl['dat']['bosyu_user_name']); ?></td>
+	</tr>
+	</table>
+	<br />	
+	<!-- -->
+	<!-- -->
+	<p style="font-size: 16px;">募集内容:</p>
+	<div style="max-width : 500px;  padding:10px; ;border: solid 1px black;"><?php echo(nl2br($tpl['dat']['naiyou'])); ?>
+	</div>
+	<br />
+	<div class="input-group">
+	<p style="font-size: 16px; float: left;">状態:</p>
+	&nbsp;
+	<select name="state" style="font-size: 16px;">
+		<?php foreach ($tpl['admin_state_type_arr'] as $key => $value) { ?>
+			<?php  if( $key==$tpl['dat']['state']){ ?>
+				<option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+			<?php }else{ ?>
+				<option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+			<?php } ?>
+		<?php } ?>
+	</select>
+	</div>
+	<br />
+		
+	<input type="submit" class="btn btn-lg btn-primary" value="更新する" /><br />
+  </form>
+</div>
+  <br />
+

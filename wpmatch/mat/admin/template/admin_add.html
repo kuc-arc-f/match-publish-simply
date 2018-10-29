@@ -1,0 +1,33 @@
+<!-- テンプレート -->
+<html>
+<head>
+</head>
+<body>
+  <h1>管理ユーザ add</h1>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="admin_add" name="fn" /><br />
+    <!--
+    email:
+    <input type="text"  value="" name="email" maxlength="64" /><br />
+    password:
+    <input type="password"  value="" name="passwd" maxlength="12" /><br />
+    <br />
+     -->
+	<div class="input-group">
+	<span class="input-group-addon" id="basic-addon1">email</span>
+	<input type="text" name="email" maxlength="64"
+	 class="form-control" placeholder="mail address" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<div class="input-group">
+	<span class="input-group-addon" id="basic-addon1">password</span>
+	<input type="password" name="passwd" maxlength="12"  class="form-control" placeholder="password input" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<input type="submit" class="btn btn-primary" value="Add" /><br />
+  </form>
+  <br />
+ 
+</body>
+</html>
+

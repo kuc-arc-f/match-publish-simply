@@ -1,0 +1,29 @@
+  <h1> ログイン</h1>
+  <br />
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="user_login" name="fn" /><br />
+<!-- -->
+<div id="id_input_form" style="max-width : 500px;">
+	<div class="input-group">
+	<span class="input-group-addon" id="basic-addon1">email</span>
+	<input type="text" name="email" class="form-control" placeholder="mail address" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<div class="input-group">
+	<span class="input-group-addon" id="basic-addon1">password</span>
+	<input type="password" name="passwd" maxlength="12"  class="form-control" placeholder="password input" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<input type="submit" class="btn btn-primary"  value="Login" /><br />
+  </form>
+</div>
+  <br />
+  <div><p style="color :red;"><?php echo($tpl['msg']); ?></p>
+  </div>
+<hr />
+  <br />
+  <br />
+  <a href="./?fn=user_add_show" class="btn btn-default">アカウント登録</a><br>
+  <br />
+  <br />
+

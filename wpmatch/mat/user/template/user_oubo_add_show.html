@@ -1,0 +1,65 @@
+<!-- テンプレート -->
+<!--
+<h1>応募　登録</h1>
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">応募　登録</h2>
+		<br />
+</div>
+	
+<div><p style="color:red;"><?php echo($tpl['error']); ?></p>
+</div>
+  <form name="form1" method="POST"  action="./">
+		<input type="hidden"  value="user_oubo_kakunin" name="fn" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['id']); ?>" name="id" />
+<div id="id_input_form" style="">
+	<table class="table table-striped" border="1">
+	<thead>
+	<tr>
+		<th>項目</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tr>
+		<th>タイトル</th>
+		<td><?php echo($tpl['dat']['title']); ?></td>
+	</tr>
+	<tr>
+		<th>募集終了日</th>
+		<td><?php echo($tpl['dat']['bosyu_end']); ?></td>
+	</tr>
+	<tr>
+		<th>報酬金額</th>
+		<td><?php echo($tpl['housyu']); ?></td>
+	</tr>
+	<tr>
+		<th>契約期間</th>
+		<td><?php echo($tpl['keiyaku_span_name']); ?></td>
+	</tr>
+	<tr>
+		<th>募集人数</th>
+		<td><?php echo($tpl['dat']['bosyu_num']); ?> 人</td>
+	</tr>
+
+	</table>
+	<!-- -->
+	<p style="font-size: 16px;">募集内容:</p>
+	<div style="max-width : 500px;  padding:10px; ;border: solid 1px black;"><?php echo(nl2br($tpl['dat']['naiyou'])); ?>
+	</div>
+	<hr />
+	<div class="input-group" style="max-width : 500px;">
+		<span class="input-group-addon" id="basic-addon1">報酬金額 (税抜) 円</span>
+		<input type="text" name="price" maxlength="512" style="width : 100px;"
+		 class="form-control" placeholder="" value="<?php echo($tpl['price']); ?>" aria-describedby="basic-addon1">
+	</div>
+	<br />
+	<p style="font-size: 16px;">応募 内容:</p>
+	<div style="max-width : 500px;">
+	<textarea name="oubo_text" rows="20" cols="80"><?php echo($tpl['oubo_text']); ?></textarea>
+	</div>
+
+	<input type="submit" class="btn btn-lg btn-primary" value="確認する" /><br />
+  </form>
+</div>
+  <br />
+

@@ -1,0 +1,57 @@
+<!-- テンプレート -->
+<!--
+<h2 class="h4_td_title">マイページ 応募済</h2>
+<br />
+
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">マイページ 応募済</h2>
+		<br />
+</div>
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+    <th>応募<br />ID</th>
+    <th>募集<br />ID</th>
+    <th>募集者</th>
+		<th>タイトル</th>
+		<th>登録日</th>
+		<th> </th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+      <?php echo($value['bosyu_id']); ?>
+  </td>
+  <td>
+      <?php echo($value['bosyu_user_name']); ?>
+      <p>ID: <?php echo($value['bosyu_user_id']); ?></p> <br />
+  </td>
+  <td>
+      <h4><?php echo($value['title']); ?></h4>
+      <p style="margin-top: 10px;">報酬: <?php echo($value['housyu']); ?></p>
+  </td>
+  <td>
+      <?php echo($value['oubo_dt']); ?>
+  </td>
+  <td> 
+    <!--
+    <p><a href="./?fn=user_oubo_show&id=<?php echo ($value['bosyu_id']); ?>" class="btn btn-primary">詳細</a></p>
+    bosyu_id    
+    -->
+   <p><a href="./?fn=user_mypage_oubo_show&id=<?php echo ($value['id']); ?>" class="btn btn-primary">詳細</a></p>
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+	<a href="./?fn=user_mypage_oubo_list&page=<?php echo $i ?>">[ <?php echo $i; ?> ]</a>
+<?php } ?>
+<hr />
+<br />

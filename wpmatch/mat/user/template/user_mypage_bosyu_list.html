@@ -1,0 +1,85 @@
+<!-- テンプレート -->
+<!--
+  <h1>マイページ /募集済</h1>
+-->
+  <div class="div_conte" >
+      <h2 class="h4_td_title">マイページ 募集済</h2>
+      <br />
+  </div>
+  <!--
+<table class="table" border="0" width="100%" style="margin-bottom: 20px;">
+<tr>
+  <td style="text-align:center;">
+      <a href="./?fn=user_mypage_bosyu_list&koukai=1" class="btn btn-default">募集中</a>
+  </td>  
+  <td style="text-align:center;">
+      <a href="./?fn=user_mypage_bosyu_list&koukai=0" class="btn btn-default">募集終了</a>
+  </td>  
+</tr>
+</table>
+  -->
+<div class="flexbox" style="margin :0px; max-width : 340px;">
+    <div class="flexbox_div" style="padding: 0px;">
+        <a href="./?fn=user_mypage_bosyu_list&koukai=1" class="btn btn-default">募集中</a>
+    </div>
+    <div class="flexbox_div flexbox_twice" style="padding: 0px; text-align: left;">
+        <a href="./?fn=user_mypage_bosyu_list&koukai=0" class="btn btn-default">募集終了</a>
+    </div>
+</div>
+<!---->
+<table class="table table-striped" border="1">
+<thead>
+	<tr>
+		<th>募集<br />ID</th>
+    <th>タイトル</th>
+    <th>応募<br />人数</th>
+		<th>登録日</th>
+		<th> </th>
+	</tr>
+</thead>
+<?php foreach ($tpl['dat'] as $key => $value) { ?>
+  <tr>
+  <td>
+	  <?php echo($value['id']); ?>
+  </td>
+  <td>
+      <h4><?php echo($value['title']); ?></h4>
+      <p style="margin-top: 10px;">報酬: <?php echo($value['housyu']); ?></p>
+  </td>
+  <td>
+      <?php echo($value['oubo_num']); ?> 人
+      <!--
+      <?php echo($value['bosyu_num']); ?>
+      -->
+  </td>  
+  <td>
+      <?php echo($value['create_dt']); ?>
+  </td>
+  <td> 
+    <p><a href="./?fn=user_mypage_bosyu_edit&id=<?php echo ($value['id']); ?>" class="btn btn-primary">詳細</a></p>
+    <!--
+   <p><a href="./?fn=user_oubo_show&id=<?php echo ($value['id']); ?>" class="btn btn-primary">詳細</a></p>
+    -->
+  <?php if($value['koukai']==1){  ?>
+    <p><a href="./?fn=user_bosyu_sentaku_list&id=<?php echo ($value['id']); ?>" class="btn btn-primary">応募者リスト</a></p>
+    <!--
+    <p><a href="./?fn=user_bosyu_sentaku_list&id=<?php echo ($value['id']); ?>" class="btn btn-primary">当選者 選択</a></p>
+    -->
+  <?php }else{  ?>
+    <p style="color: gray;"> 募集終了 </p>
+  <?php }  ?>
+
+  </td>
+  </tr>
+<?php }?>
+</table>
+<br />
+<!-- paginate -->
+<?php for ($i=1; $i <= $tpl['pagination'] ; $i++) { ?>
+  <!--
+  <a href="./?fn=user_oubo_list&page=<?php echo $i ?>">[ <?php echo $i; ?> ]</a>
+  -->
+  <a href="./?fn=user_mypage_bosyu_list&page=<?php echo $i ?>&koukai=<?php echo($tpl['koukai']); ?>">[ <?php echo $i; ?> ]</a>
+<?php } ?>
+<hr />
+<br />

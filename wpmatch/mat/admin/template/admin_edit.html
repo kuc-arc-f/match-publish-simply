@@ -1,0 +1,41 @@
+<script>
+  function user_delete(id){
+	  ret=window.confirm("このユーザーを削除しますか?\n");
+	  if(ret){
+	    window.location.href = './?fn=admin_user_delete&id='+ id;
+	  }
+  }
+</script>
+<div class="div_conte" >
+		<h2 class="h4_td_title">管理者 編集</h2>
+		<br />
+</div>
+<!--
+  <h1>管理者 編集</h1>
+-->
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="admin_update" name="fn" />
+    <input type="hidden"  value="<?php echo $tpl['dat']['id'];  ?>" name="id" />
+    &nbsp; email: <?php echo $tpl['dat']['email'];  ?> <br />
+    <br />
+    <!-- 
+    password:
+    <input type="text"  value="<?php echo $tpl['dat']['passwd'];  ?>" name="passwd" maxlength="12" /><br />
+    <br />
+    -->
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">password</span>
+  <input type="text" name="passwd" maxlength="12" value="<?php echo $tpl['dat']['passwd'];  ?>"
+   class="form-control" placeholder="password input" aria-describedby="basic-addon1">
+  </div>
+  <br />
+    <input type="submit" class="btn btn-primary" value="save" /><br />
+  </form>
+  <br />
+  <hr />
+  <a href="#" class="btn btn-default"
+   onClick="user_delete(<?php echo $tpl['dat']['id'];  ?>);" >ユーザー削除</a>
+   <br />
+   <br />
+
+

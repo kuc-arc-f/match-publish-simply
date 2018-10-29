@@ -1,0 +1,50 @@
+<script>
+  function user_delete(id){
+	  ret=window.confirm("このユーザーを削除しますか?\n");
+	  if(ret){
+	    window.location.href = './?fn=admin_user_delete&id='+ id;
+	  }
+  }
+</script>
+  <h1>ユーザー削除</h1>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="admin_user_update" name="fn" />
+    <input type="hidden"  value="<?php echo $tpl['dat']['id'];  ?>" name="id" />
+  &nbsp; <p>email: <?php echo $tpl['dat']['email'];  ?></p>
+  &nbsp; <p>ニックネーム: <?php echo $tpl['dat']['nickname'];  ?></p>
+  <br />
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">password</span>
+  <input type="text" name="passwd" value="<?php echo $tpl['dat']['passwd'];  ?>"
+    maxlength="12"  class="form-control" placeholder="password input" aria-describedby="basic-addon1">
+  </div>
+  <br />
+	<div class="input-group">
+      <p style="font-size: 16px; float: left;">状態:</p>
+      &nbsp;
+      <select name="stat" style="font-size: 16px;">
+        <?php foreach ($tpl['user_state_type_arr'] as $key => $value) { ?>
+          <?php  if( $key==$tpl['dat']['stat']){ ?>
+            <option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+          <?php }else{ ?>
+            <option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+          <?php } ?>
+        <?php } ?>
+      </select>
+      </div>
+  &nbsp; <p>参加区分: <?php echo $tpl['dat']['sanka_type_name'];  ?></p>
+  &nbsp; <p>性別: <?php echo $tpl['dat']['seibetu_name'];  ?></p>
+  <br />
+  <input type="submit" class="btn btn-primary"  value="save" /><br />
+  </form>
+  <br />
+  <hr />
+  <!--
+  <a href="#" class="btn btn-default"
+   onClick="user_delete(<?php echo $tpl['dat']['id'];  ?>);" > ユーザー削除 </a>
+
+  -->
+  <br />
+  <br />
+  <br />
+ 

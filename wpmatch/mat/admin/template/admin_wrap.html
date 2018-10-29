@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title><?php  echo($mConfig['sys_title']); ?></title>
+  <link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css?A1">
+  <link href="./css/main-sp.css?A3" rel="stylesheet" media="screen and (max-width: 480px)">
+  <link rel="stylesheet" href="./css/theme.css?A3">
+  <link rel="stylesheet" href="./css/top_scroll.css?A1">
+  <script src="../jquery-1.10.2.min.js"></script>
+  <script src="../bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<!--  nav-post  -->
+<div id="div_navigate_post">
+    <div id="div_head" class="cover">
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+          <a href="./"><p><?php  echo($mConfig['sys_title']); ?></p></a>
+          </div>
+          <div class="col-sm-8" style="text-align: right;">
+          </div>
+        </div>
+        </div>
+    </div><!-- end_div_head -->
+</div>
+  
+
+<body class="drawer drawer--left" style="background-color: #EEEEEE;">
+  <!-- T -->
+  <a href="#" class="page-top" style="color: #fff;"><img src="../image/arrow_5.png" /></a>
+  <div  id="container">
+     <div id="main">
+<div class="container" style="margin-top:10px;">
+        <div class="row conte">
+        
+		<div class="col-sm-3" style="padding: 10px;">
+              <aside  style="margin:10px;" id="sidebar">
+				  <div class="widget-wrap">
+				    <h3 class="widget-title">ユーザー管理</h3>
+				    <div class="widget">
+				      <ul class="category-list">
+				        <li class="category-list-item">
+				          <a class="category-list-link" href="./?fn=admin_user_list">ユーザーリスト</a>
+                </li>
+                <!-- -->
+				        <li class="category-list-item">
+                    <a class="category-list-link" href="./?fn=admin_list">管理者リスト</a>
+                  </li>
+                  <li class="category-list-item">
+                    <a class="category-list-link" href="./?fn=admin_logout">管理者ログアウト</a>
+                  </li>
+                  
+			        </ul>
+				    </div>
+				  </div>
+          <!-- admin -->
+          <br />
+				  <div class="widget-wrap">
+				    <h3 class="widget-title">管理者</h3>
+				    <div class="widget">
+				      <ul class="category-list">
+                <!-- -->
+                <li class="category-list-item">
+                    <a class="category-list-link" href="./?fn=admin_bosyu_list">募集を表示</a>
+                </li>
+                <li class="category-list-item">
+                    <a class="category-list-link" href="./?fn=admin_msg_list">メッセージを表示</a>
+                </li>
+                <li class="category-list-item">
+                    <a class="category-list-link" href="./?fn=admin_sys_param_edit">システム全体設定</a>
+                </li>
+ 
+			        </ul>
+				    </div>
+				  </div>					    
+				</aside>
+            </div>
+
+          <div class="col-sm-9" style="padding: 10px;">
+				<div class="div_news_rows" style="width:100%;">
+						<?php include("{$mConfig['temp_dir']}/{$tpl['temp_html']}"); ?>
+				</div>
+        </div><!-- col_9 -->
+        </div><!-- row -->
+</div>
+
+
+    </div>
+    <br />
+<br />
+<div id="id_foot" style="background-color: #757575 ; color:#FFF ; padding : 200px 40px;">
+	<a href="#"><p class="p_foot_str">About</p></a>
+	<p class="p_foot_str">Contact</p>
+	<p class="p_foot_str">運営組織</p>
+ </div>
+ <script>
+ function demo01() {
+	 $(this).next().slideToggle(300);
+ }
+ $(".toggle").click(demo01);
+ </script>
+ <script src="./js/top_scroll.js"></script>
+  </div>
+</body>
+</html>

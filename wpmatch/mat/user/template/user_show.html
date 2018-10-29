@@ -1,0 +1,46 @@
+<!--
+    <h1>ユーザー 情報表示</h1>
+-->
+  <div class="div_conte" >
+      <h2 class="h4_td_title">ユーザー 情報表示</h2>
+      <br />
+  </div>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="user_update" name="fn" /><br />
+    <input type="hidden"  value="<?php echo $tpl['dat']['id'];  ?>" name="id" />
+<div id="id_input_form" style="max-width : 500px;">
+    <table class="table table-striped" border="1">
+        <thead>
+        <tr>
+          <th>項目</th>
+          <th> </th>
+        </tr>
+        </thead>
+        <tr>
+            <th>ID</th>
+            <td><?php echo $tpl['dat']['id'];  ?></td>
+          </tr>        
+        <tr>
+          <th>email</th>
+          <td><?php echo $tpl['dat']['email'];  ?></td>
+        </tr>
+        <tr>
+            <th>ニックネーム</th>
+            <td><?php echo $tpl['dat']['nickname'];  ?></td>
+        </tr>
+        <tr>
+            <th>参加区分</th>
+            <td><?php echo $tpl['sanka_type_name'];  ?></td>
+        </tr>
+        <tr>
+            <th>性別</th>
+            <td><?php echo $tpl['user_seibetu_name'];  ?></td>
+        </tr>
+        </table>
+      </div>
+</form>
+  <br />
+  <hr />
+  <a href="./" class="btn btn-default"> Topへ</a><br>
+  <br />
+ 

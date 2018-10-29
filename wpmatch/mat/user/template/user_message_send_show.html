@@ -1,0 +1,58 @@
+<!-- テンプレート -->
+<!--
+<h1>メッセージ　送信</h1>
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">メッセージ　送信</h2>
+		<br />
+</div>
+
+<div><p style="color:red;"><?php echo($tpl['error']); ?></p>
+</div>
+  <form name="form1" method="POST"  action="./">
+		<input type="hidden"  value="user_message_send" name="fn" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['bosyu_id']); ?>" name="bosyu_id" />
+		<input type="hidden"  value="<?php echo($tpl['dat']['send_id']); ?>" name="send_id" />
+		<div id="id_input_form" style="">
+			<p>募集概要:</p>
+			<table class="table table-striped" border="1">
+			<thead>
+			<tr>
+				<th>項目</th>
+				<th> </th>
+			</tr>
+			</thead>
+			<tr>
+				<th>タイトル</th>
+				<td><?php echo( $tpl['dat']['bosyu']['title']); ?></td>
+			</tr>		
+			</table>
+			<!-- -->
+			<p>送信先 :</p>
+			<table class="table table-striped" border="1">
+			<thead>
+			<tr>
+				<th>項目</th>
+				<th> </th>
+			</tr>
+			</thead>
+			<tr>
+				<th>応募者 ID</th>
+				<td><?php echo( $tpl['dat']['send_user']['id']); ?></td>
+			</tr>
+			<tr>
+				<th>応募者</th>
+				<td><?php echo($tpl['dat']['send_user']['nickname']); ?></td>
+			</tr>
+			</table>
+			<!-- -->
+			<p style="font-size: 16px;">メッセージ 内容:</p>
+			<div style="max-width : 500px;">
+			<textarea name="msg_text" rows="20" cols="80"></textarea>
+			</div>
+			<br />
+			<input type="submit" class="btn btn-lg btn-primary" value="メッセージ送信" /><br />
+			</form>
+		</div>
+  <br />
+

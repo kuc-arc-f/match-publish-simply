@@ -1,0 +1,70 @@
+<script>
+</script>
+<!--
+  <h1>ユーザー 編集</h1>
+-->
+  <div class="div_conte" >
+      <h2 class="h4_td_title">ユーザー 編集</h2>
+      <br />
+  </div>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="user_update" name="fn" />
+    <input type="hidden"  value="<?php echo $tpl['dat']['id'];  ?>" name="id" />
+<div id="id_input_form" style="max-width : 500px;">
+    <div class="input-group">
+        <p> email: <?php echo $tpl['dat']['email'];  ?> </p><br />
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">ニックネーム</span>
+        <input type="text" name="nickname" maxlength="64" value="<?php echo $tpl['dat']['nickname'];  ?>"
+        class="form-control" placeholder="" aria-describedby="basic-addon1">
+    </div>
+    <br />
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">password</span>
+      <input type="text" name="passwd" maxlength="12" class="form-control"
+       placeholder="password input" aria-describedby="basic-addon1" value="<?php echo $tpl['dat']['passwd'];  ?>">
+      </div>
+      <br />
+      <div class="input-group" style="max-width : 500px;">
+        <p style="font-size: 16px; float: left;">参加区分:</p>
+        &nbsp;
+        <select name="sanka_type" style="font-size: 16px;">
+        <?php foreach ($tpl['sanka_type_arr'] as $key => $value) { ?>
+          <?php if($key ==$tpl['dat']['sanka_type'] ){ ?>
+            <option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+          <?php }else{ ?>
+            <option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+          <?php } ?>
+        <?php } ?>
+        </select>
+      </div>
+      <br />
+          <!---->
+        <div class="input-group" style="max-width : 500px;">
+          <p style="font-size: 16px; float: left;">性別:</p>
+          &nbsp;
+          <select name="seibetu" style="font-size: 16px;">
+          <?php foreach ( $tpl['user_seibetu_arr'] as $key => $value) { ?>
+            <?php if($key ==$tpl['dat']['seibetu'] ){ ?>
+              <option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+            <?php }else{ ?>
+              <option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+            <?php } ?>            
+          <?php } ?>
+          </select>
+        </div>
+    <br />      
+    <br />
+    <input type="submit" class="btn btn-primary"  value="Save" /><br />
+  </div>
+
+</form>
+  <br />
+  <hr />
+  <!--
+  <a href="../../" class="btn btn-default"> Topへ</a><br>
+  -->
+  <a href="./" class="btn btn-default"> Topへ</a><br>
+  <br />
+ 

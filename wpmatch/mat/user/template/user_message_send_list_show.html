@@ -1,0 +1,53 @@
+<!-- テンプレート -->
+<!--
+<h1>送信済 メッセージ 詳細 </h1>
+-->
+<div class="div_conte" >
+		<h2 class="h4_td_title">送信済 メッセージ 詳細</h2>
+		<br />
+</div>
+  <form name="form1" method="GET"  action="./">
+		<input type="hidden"  value=" " name="fn" />
+<div id="id_input_form" style="">
+	<table class="table table-striped" border="1">
+	<thead>
+	<tr>
+		<th>項目</th>
+		<th> </th>
+	</tr>
+	</thead>
+	<tr>
+		<th>募集 タイトル</th>
+		<td><h4><?php echo( $tpl['dat']['bosyu']['title']); ?></h4>
+			<a href="./?fn=user_oubo_show&id=<?php  echo($tpl['dat']['bosyu']['id']); ?>"
+				class="btn btn-default">詳細を見る</a>
+		</td>
+	</tr>
+	<tr>
+			<th>日付</th>
+				<td><?php echo( $tpl['dat']['create_dt'] ); ?></td>
+	</tr>
+	<tr>
+		<th>送信先 ID</th>
+		<td><?php echo( $tpl['dat']['send_id']); ?></td>
+	</tr>
+	<tr>
+		<th>送信者 ニックネーム</th>
+		<td>		<?php echo( $tpl['send']['nickname']); ?>
+		</td>
+		</tr>
+	</table>
+	<br />	
+	<!-- -->
+	<p style="font-size: 16px;">送信済 内容:</p>
+	<div style="max-width : 500px;  padding:10px; ;border: solid 1px black;"><?php echo(nl2br($tpl['dat']['msg_text'])); ?>
+	</div>
+	<br />
+	<!--
+	<input type="submit" class="btn btn-lg btn-primary" value="返信する" /><br />
+	-->
+
+  </form>
+</div>
+  <br />
+

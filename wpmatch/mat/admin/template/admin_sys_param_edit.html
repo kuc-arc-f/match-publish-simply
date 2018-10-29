@@ -1,0 +1,43 @@
+<!--
+  <h1>システム　設定</h1>
+-->
+  <div class="div_conte" >
+      <h2 class="h4_td_title">システム　設定</h2>
+      <br />
+  </div>
+  <form name="form1" method="POST"  action="./">
+    <input type="hidden"  value="admin_sys_param_update" name="fn" /><br />
+    <input type="hidden"  value="<?php echo $tpl['dat']['id'];  ?>" name="id" />
+    <!--
+    &nbsp; email: <?php echo $tpl['dat']['email'];  ?> <br />
+    <br />
+    -->
+    <div class="input-group">
+        <p style="font-size: 16px; float: left;">メール送信設定:</p>
+        &nbsp;
+        <select name="mail_send" style="font-size: 16px;">
+          <?php foreach ($tpl['admin_type_yn_arr'] as $key => $value) { ?>
+            <?php  if( $key==$tpl['dat']['mail_send']){ ?>
+              <option value="<?php echo($key); ?>" selected><?php echo($value ); ?></option>
+            <?php }else{ ?>
+              <option value="<?php echo($key); ?>"><?php echo($value ); ?></option>
+            <?php } ?>
+          <?php } ?>
+        </select>
+    </div>
+  <!--
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">password</span>
+  <input type="text" name="mail_send" maxlength="12" value="<?php echo $tpl['dat']['passwd'];  ?>"
+   class="form-control" placeholder="password input" aria-describedby="basic-addon1">
+  </div>
+  -->
+  <br />
+    <input type="submit" class="btn btn-primary" value="保存する" /><br />
+  </form>
+  <br />
+  <hr />
+  <br />
+  <br />
+
+
