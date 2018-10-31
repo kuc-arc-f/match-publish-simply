@@ -75,7 +75,11 @@
 	<!---->
 	<hr />
 	<!-- -->
-	<h4 style="font-size: 18px; font-weight: bold;">応募内容:</h4>
+	<h4 style="font-size: 18px; font-weight: bold;">応募 情報:</h4>
+	<p>応募 ID:<?php echo($tpl['dat']['oubo_id']); ?></p>
+	<p>応募者 :<?php echo($tpl['dat']['nickname']); ?></p>
+	<p>報酬金額 :<?php echo($tpl['dat']['price_fmt']); ?> 円</p>
+	<p>応募内容 :</p>
 	<div style="max-width : 500px;  padding:10px; ;border: solid 1px black; background: #ffebcd;">
 		<?php echo(nl2br($tpl['dat']['oubo_text'])); ?>
 	</div>
